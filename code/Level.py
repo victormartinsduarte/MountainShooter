@@ -39,6 +39,8 @@ class Level:
         pygame.mixer_music.set_volume(0.3)
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
+        if self.name == 'Level3': # Se for o Level3, o tempo será dobrado
+            self.timeout = TIMEOUT_LEVEL * 2
         while True:
             clock.tick(60)
             for ent in self.entity_list:
@@ -57,7 +59,10 @@ class Level:
                     pygame.quit()
                     sys.exit()
                 if event.type == EVENT_ENEMY:
-                    choice = random.choice(('Enemy1', 'Enemy2'))
+                    if self.name == 'Level3':
+                        choice = 'Enemy3'
+                    else:
+                        choice = random.choice(('Enemy1', 'Enemy2'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
                 if event.type == EVENT_TIMEOUT:
                     self.timeout -= TIMEOUT_STEP

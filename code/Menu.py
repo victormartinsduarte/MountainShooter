@@ -24,6 +24,10 @@ class Menu:
             self.menu_text(50, "Mountain", C_ORANGE, ((WIN_WIDTH / 2), 70))
             self.menu_text(50, "Shooter", C_ORANGE, ((WIN_WIDTH / 2), 120))
 
+            # Req. 1, nome e RU
+            self.menu_text(20, "Nome: Victor Francisco Martins Duarte", C_WHITE, (130, 10))
+            self.menu_text(20, "RU: 4529468", C_WHITE, (130, 25))
+
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
                     self.menu_text(20, MENU_OPTION[i], C_YELLOW, ((WIN_WIDTH / 2), 200 + 25 * i))
